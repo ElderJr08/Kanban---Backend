@@ -1,3 +1,3 @@
-import { validateToken } from "./auth";
+import { validateToken, generateToken } from "./auth";
 
-export { validateToken };
+export { validateToken, generateToken };

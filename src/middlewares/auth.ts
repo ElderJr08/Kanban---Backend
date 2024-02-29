@@ -14,7 +14,7 @@ export function validateToken(req: Request, res: Response, next: NextFunction) {
       .status(400)
       .send({ message: "Propriedade x-auth-token não informado." });
 
-  const [scheme, token] = authHeader.split("") || ["", ""];
+  const [scheme, token] = authHeader.split(" ") || ["", ""];
 
   if (!token)
     return res
@@ -36,4 +36,10 @@ export function validateToken(req: Request, res: Response, next: NextFunction) {
     console.log("Auth Error: ", error);
     return res.status(401).json({ message: "Token inválido" });
   }
+}
+
+export function generateToken(params: object) {
+  return jwt.sign(params, config.auth.secret, {
+    expiresIn: 60, //para 30min 1800
+  });
 }
