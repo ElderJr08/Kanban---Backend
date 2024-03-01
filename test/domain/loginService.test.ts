@@ -47,4 +47,19 @@ describe("Login Service Test", () => {
     expect(getLoginSpy).toHaveBeenCalledWith(params.login, params.senha);
     expect(login).toBe(mockLogin);
   });
+
+  it("should throw an error, when getLogin throws an unexpected error", async () => {
+    jest
+      .spyOn(loginRepositoryInstance, "getLogin")
+      .mockRejectedValueOnce(new Error("Unexpected Error happens..."));
+
+    await expect(sut.getLogin(params.login, params.senha)).rejects.toThrow();
+  });
+
+  it("should be able to call getLogin, without repository dependency", async () => {
+    sut = new LoginService();
+    await expect(
+      sut.getLogin(params.login, params.senha),
+    ).resolves.not.toThrow();
+  });
 });
