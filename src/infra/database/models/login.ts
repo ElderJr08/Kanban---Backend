@@ -9,17 +9,12 @@ export const loginModel = {
     allowNull: false,
     primaryKey: true,
   },
-  userId: {
-    type: DataTypes.INTEGER,
-    autoIncrement: false,
-    allowNull: false,
-  },
   login: {
     type: DataTypes.STRING,
     autoIncrement: false,
     allowNull: false,
   },
-  password: {
+  senha: {
     type: DataTypes.STRING,
     autoIncrement: false,
     allowNull: false,

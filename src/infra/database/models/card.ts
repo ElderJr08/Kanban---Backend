@@ -9,17 +9,17 @@ export const cardModel = {
     allowNull: false,
     primaryKey: true,
   },
-  title: {
+  titulo: {
     type: DataTypes.STRING,
     autoIncrement: false,
     allowNull: false,
   },
-  content: {
+  conteudo: {
     type: DataTypes.STRING,
     autoIncrement: false,
     allowNull: false,
   },
-  list: {
+  lista: {
     type: DataTypes.STRING,
     autoIncrement: false,
     allowNull: false,

@@ -96,7 +96,7 @@ export default class CardController {
 
       const cards = await this.cardService.getCards();
 
-      res.status(200).json({ cards });
+      res.status(200).json(cards);
     } catch (error) {
       console.log("Card Controller > deleteCard Error: ", error);
       res.status(500).json({ message: "Internal Server error" });

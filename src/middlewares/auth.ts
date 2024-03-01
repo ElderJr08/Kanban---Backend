@@ -29,7 +29,7 @@ export function validateToken(req: Request, res: Response, next: NextFunction) {
 
     if (!payload) return res.status(401).json({ message: "Token inválido" });
 
-    req.headers["x-user-id"] = payload.id;
+    req.headers["x-login-id"] = payload.id;
 
     return next();
   } catch (error) {

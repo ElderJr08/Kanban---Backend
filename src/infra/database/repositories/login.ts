@@ -9,13 +9,13 @@ export default class LoginRepository {
     this.dbClient = dbClient ?? DatabaseClient.getInstance();
   }
 
-  async getLogin(login: string, password: string): Promise<Login> {
+  async getLogin(login: string, senha: string): Promise<Login> {
     const loginTable = await this.dbClient.define(loginModelName, loginModel);
 
     const result = await loginTable?.findOne({
       where: {
         login,
-        password,
+        senha,
       },
     });
 

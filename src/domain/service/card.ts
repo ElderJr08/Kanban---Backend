@@ -13,20 +13,20 @@ export default class CardService {
   }
 
   async insertCard(
-    title: string,
-    content: string,
-    list: string,
+    titulo: string,
+    conteudo: string,
+    lista: string,
   ): Promise<Card> {
-    return this.cardRepository.insertCard(title, content, list);
+    return this.cardRepository.insertCard(titulo, conteudo, lista);
   }
 
   async updateCard(
     id: number,
-    title: string,
-    content: string,
-    list: string,
+    titulo: string,
+    conteudo: string,
+    lista: string,
   ): Promise<boolean> {
-    return this.cardRepository.updateCard(id, title, content, list);
+    return this.cardRepository.updateCard(id, titulo, conteudo, lista);
   }
 
   async deleteCard(id: number): Promise<boolean> {

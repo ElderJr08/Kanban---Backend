@@ -16,28 +16,28 @@ export default class CardRepository {
   }
 
   async insertCard(
-    title: string,
-    content: string,
-    list: string,
+    titulo: string,
+    conteudo: string,
+    lista: string,
   ): Promise<Card> {
     const cardTable = await this.dbClient.define(cardModelName, cardModel);
     const card = await cardTable?.create({
-      title,
-      content,
-      list,
+      titulo,
+      conteudo,
+      lista,
     });
     return card as unknown as Card;
   }
 
   async updateCard(
     id: number,
-    title: string,
-    content: string,
-    list: string,
+    titulo: string,
+    conteudo: string,
+    lista: string,
   ): Promise<boolean> {
     const cardTable = await this.dbClient.define(cardModelName, cardModel);
     const result = await cardTable?.update(
-      { title, content, list },
+      { titulo, conteudo, lista },
       { where: { id } },
     );
     return !!result?.[0];

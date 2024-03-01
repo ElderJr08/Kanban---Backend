@@ -18,14 +18,14 @@ export default class LoginController {
           .status(400)
           .json({ message: "Os campos: login e senha não podem ser vazios." });
 
-      const { userId } = (await this.loginService.getLogin(login, senha)) || {};
+      const result = (await this.loginService.getLogin(login, senha)) || {};
 
-      if (!userId)
+      if (!result)
         return res
           .status(400)
           .json({ message: "Usuário e/ou senha inválidos." });
 
-      const tokenAuth = generateToken({ id: userId });
+      const tokenAuth = generateToken({ id: result.id });
 
       res.status(200).json(tokenAuth);
     } catch (error) {
