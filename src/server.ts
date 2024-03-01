@@ -3,8 +3,9 @@ import cors from "cors";
 import { printDeleteOrUpdateResponse, validateToken } from "./middlewares";
 import LoginController from "./controller/v1/login";
 import CardController from "./controller/v1/card";
+import config from "./config";
 
-const port = 5000;
+const port = config.port;
 
 const app = express();
 app.use(express.json());

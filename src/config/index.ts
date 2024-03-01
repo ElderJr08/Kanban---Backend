@@ -4,6 +4,7 @@ dotenv.config();
 type Dialect = "sqlite" | "mssql" | "oracle";
 
 export interface Config {
+  port: string;
   auth: {
     secret: string;
   };
@@ -14,6 +15,7 @@ export interface Config {
 }
 
 const config: Config = {
+  port: process.env.PORT || "5000",
   auth: {
     secret: process.env.JWT_SECRET || "",
   },
