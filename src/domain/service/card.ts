@@ -28,4 +28,8 @@ export default class CardService {
   ): Promise<boolean> {
     return this.cardRepository.updateCard(id, title, content, list);
   }
+
+  async deleteCard(id: number): Promise<boolean> {
+    return this.cardRepository.deleteCard(id);
+  }
 }

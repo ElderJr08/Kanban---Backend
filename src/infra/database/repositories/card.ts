@@ -42,4 +42,10 @@ export default class CardRepository {
     );
     return !!result?.[0];
   }
+
+  async deleteCard(id: number): Promise<boolean> {
+    const cardTable = await this.dbClient.define(cardModelName, cardModel);
+    const result = await cardTable?.destroy({ where: { id } });
+    return !!result;
+  }
 }
