@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 type Dialect = "sqlite" | "mssql" | "oracle";
 
 export interface Config {
@@ -12,11 +15,11 @@ export interface Config {
 
 const config: Config = {
   auth: {
-    secret: "NGQ1OTUzNDU0MzUyNDU1NA", // BASE64 -> HEXA -> STRING
+    secret: process.env.JWT_SECRET || "",
   },
   db: {
-    dialect: "sqlite",
-    storage: "./database.sqlite",
+    dialect: (process.env.DB_DIALECT as Dialect) || "sqlite",
+    storage: process.env.DB_STORAGE || "",
   },
 };
 
