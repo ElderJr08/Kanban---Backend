@@ -7,12 +7,12 @@ interface Payload {
 }
 
 export function validateToken(req: Request, res: Response, next: NextFunction) {
-  const authHeader = req.headers["x-auth-token"] as string;
+  const authHeader = req.headers["authorization"] as string;
 
   if (authHeader === undefined)
     return res
       .status(400)
-      .send({ message: "Propriedade x-auth-token não informado." });
+      .send({ message: "Propriedade authorization não informado no header." });
 
   const [scheme, token] = authHeader.split(" ") || ["", ""];
 

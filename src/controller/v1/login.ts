@@ -27,7 +27,7 @@ export default class LoginController {
 
       const tokenAuth = generateToken({ id: userId });
 
-      res.status(200).json({ token: `Bearer ${tokenAuth}` });
+      res.status(200).json(tokenAuth);
     } catch (error) {
       console.log("Login Controller > getLogin Error: ", error);
       res.status(500).json({ message: "Internal Server error" });

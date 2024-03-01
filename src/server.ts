@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+import cors from "cors";
 import { printDeleteOrUpdateResponse, validateToken } from "./middlewares";
 import LoginController from "./controller/v1/login";
 import CardController from "./controller/v1/card";
@@ -7,6 +8,7 @@ const port = 5000;
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 const makeGetLoginHandler = (req: Request, res: Response) => {
   const controller = new LoginController();

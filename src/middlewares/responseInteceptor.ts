@@ -19,8 +19,6 @@ export function printDeleteOrUpdateResponse(
       PUT: "Alterado",
     };
 
-    console.log(res);
-
     if (isAllowedStatusCode && isAllowedPath && isAllowedMethod) {
       console.log(
         //@ts-ignore
