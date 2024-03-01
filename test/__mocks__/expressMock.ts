@@ -1,4 +1,4 @@
-const mockRes = () => {
+const mockRes = (statusCode = 0) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const res: any = {};
 
@@ -6,12 +6,15 @@ const mockRes = () => {
   res.status = jest.fn().mockReturnValue(res);
   res.json = jest.fn().mockReturnValue(res);
   res.send = jest.fn().mockReturnValue(res);
+  res.statusCode = statusCode;
 
   return res;
 };
 
 const mockReq = ({
   body = {},
+  path = "",
+  method = "",
   headers = {},
   params = {},
   query = {},
@@ -19,6 +22,8 @@ const mockReq = ({
 }) => {
   const req = {
     body,
+    path,
+    method,
     headers,
     params,
     query,

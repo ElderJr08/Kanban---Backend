@@ -11,6 +11,10 @@ jest.mock("jsonwebtoken", () => ({
 jest.mock("../../src/config");
 
 describe("Auth Middleware Test", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   describe("validateToken", () => {
     it("should return 400 BadRequest, when authorization header is not provided", () => {
       const reqMock = mockReq({});
