@@ -1,6 +1,5 @@
 node_modules
 *.md
-*.sqlite
 .env
 coverage
 dist
