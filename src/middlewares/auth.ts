@@ -14,7 +14,7 @@ export function validateToken(req: Request, res: Response, next: NextFunction) {
       .status(400)
       .send({ message: "Propriedade authorization não informado no header." });
 
-  const [scheme, token] = authHeader.split(" ") || ["", ""];
+  const [scheme, token] = authHeader?.split(" ") || ["", ""];
 
   if (!token)
     return res
