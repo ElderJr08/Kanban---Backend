@@ -30,7 +30,7 @@ describe("Card Service Test", () => {
     jest.clearAllMocks();
   });
 
-  it("should return cards with sucess", async () => {
+  it("should return cards with success", async () => {
     const mockCards = [
       { id: 1, titulo: "Padaria", conteudo: "comprar pao", lista: "ToDo" },
       { id: 2, titulo: "Farmacia", conteudo: "comprar dorflex", lista: "ToDo" },
@@ -45,7 +45,7 @@ describe("Card Service Test", () => {
     expect(cards).toHaveLength(2);
   });
 
-  it("should insert card with sucess", async () => {
+  it("should insert card with success", async () => {
     const mockCard = {
       id: 1,
       titulo: "Padaria",
@@ -66,7 +66,7 @@ describe("Card Service Test", () => {
     expect(card).toEqual(mockCard);
   });
 
-  it("should update card with sucess", async () => {
+  it("should update card with success", async () => {
     const mockCard = {
       id: 1,
       titulo: "Padaria",
@@ -88,7 +88,7 @@ describe("Card Service Test", () => {
     expect(updatedCard).toEqual(updatedCard);
   });
 
-  it("should delete card with sucess", async () => {
+  it("should delete card with success", async () => {
     const mockCard = {
       id: 1,
     };

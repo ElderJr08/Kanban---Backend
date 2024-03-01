@@ -32,7 +32,7 @@ describe("Login Service Test", () => {
     jest.clearAllMocks();
   });
 
-  it("should return customer login with sucess", async () => {
+  it("should return customer login with success", async () => {
     const mockLogin = {
       id: 1,
       login: "test",
