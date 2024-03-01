@@ -68,6 +68,10 @@ describe("Card Repository Test", () => {
 
       await expect(sut.getCards()).resolves.not.toThrow();
     });
+
+    it("should be able to avoid error, when define method returns null", async () => {
+      await expect(sut.getCards()).resolves.not.toThrow();
+    });
   });
 
   describe("insertCard", () => {
@@ -94,6 +98,19 @@ describe("Card Repository Test", () => {
         conteudo: mock.conteudo,
         lista: mock.lista,
       });
+    });
+
+    it("should be able to avoid error, when define method returns null", async () => {
+      const mock = {
+        id: 1,
+        titulo: "Padaria",
+        conteudo: "comprar pao",
+        lista: "ToDo",
+      };
+
+      await expect(
+        sut.insertCard(mock.titulo, mock.conteudo, mock.lista),
+      ).resolves.not.toThrow();
     });
   });
 
@@ -126,6 +143,19 @@ describe("Card Repository Test", () => {
         { where: { id: mock.id } },
       );
     });
+
+    it("should be able to avoid error, when define method returns null", async () => {
+      const mock = {
+        id: 1,
+        titulo: "Padaria",
+        conteudo: "comprar pao",
+        lista: "ToDo",
+      };
+
+      await expect(
+        sut.updateCard(mock.id, mock.titulo, mock.conteudo, mock.lista),
+      ).resolves.not.toThrow();
+    });
   });
 
   describe("deleteCard", () => {
@@ -143,6 +173,11 @@ describe("Card Repository Test", () => {
 
       expect(card).toEqual(true);
       expect(deleteCardSpy).toHaveBeenCalledWith({ where: { id: mock.id } });
+    });
+
+    it("should be able to avoid error, when define method returns null", async () => {
+      const mock = { id: 1 };
+      await expect(sut.deleteCard(mock.id)).resolves.not.toThrow();
     });
   });
 });
