@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon --watch src/ --exec ts-node src/server.ts -e ts",
-    "test": "jest --passWithNoTests"
+    "test": "jest --silent --no-cache",
+    "test:coverage": "npm run test -- --coverage"
   },
   "keywords": [],
   "author": "",
