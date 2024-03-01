@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  backend:
+    image: node:14
+    container_name: backend
+    build:
+      context: ./BACK
+    ports:
+      - "5000:5000"
+    command: npm run start
+
+  frontend:
+    build:
+      context: ./FRONT
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    command: npm run start
+    depends_on:
+      - backend
