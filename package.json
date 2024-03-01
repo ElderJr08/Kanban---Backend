@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node dist/src/server.js",
     "start:dev": "nodemon --watch src/ --exec ts-node src/server.ts -e ts",
     "test": "jest --silent --no-cache",
     "test:coverage": "npm run test -- --coverage"
