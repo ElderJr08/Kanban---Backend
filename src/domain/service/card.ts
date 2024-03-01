@@ -19,4 +19,13 @@ export default class CardService {
   ): Promise<Card> {
     return this.cardRepository.insertCard(title, content, list);
   }
+
+  async updateCard(
+    id: number,
+    title: string,
+    content: string,
+    list: string,
+  ): Promise<boolean> {
+    return this.cardRepository.updateCard(id, title, content, list);
+  }
 }

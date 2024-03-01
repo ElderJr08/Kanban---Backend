@@ -23,6 +23,11 @@ const makeInsertCardsHandler = (req: Request, res: Response) => {
   return controller.insertCard(req, res);
 };
 
+const makeUpdateCardsHandler = (req: Request, res: Response) => {
+  const controller = new CardController();
+  return controller.updateCard(req, res);
+};
+
 app.get("/health", (req: Request, res: Response) => {
   res
     .json({
@@ -37,6 +42,7 @@ app.use("*", validateToken);
 
 app.get("/cards", makeGetCardsHandler);
 app.post("/cards", makeInsertCardsHandler);
+app.put("/cards/:id", makeUpdateCardsHandler);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);

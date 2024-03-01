@@ -28,4 +28,18 @@ export default class CardRepository {
     });
     return card as unknown as Card;
   }
+
+  async updateCard(
+    id: number,
+    title: string,
+    content: string,
+    list: string,
+  ): Promise<boolean> {
+    const cardTable = await this.dbClient.define(cardModelName, cardModel);
+    const result = await cardTable?.update(
+      { title, content, list },
+      { where: { id } },
+    );
+    return !!result?.[0];
+  }
 }
