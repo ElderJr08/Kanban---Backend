@@ -1,9 +1,9 @@
 import express, { Request, Response } from "express";
-import cors from "cors";
 import { printDeleteOrUpdateResponse, validateToken } from "./middlewares";
+import config from "./config";
+import cors from "cors";
 import LoginController from "./controller/v1/login";
 import CardController from "./controller/v1/card";
-import config from "./config";
 
 const port = config.port;
 
@@ -36,7 +36,7 @@ const makeDeleteCardsHandler = (req: Request, res: Response) => {
   return controller.deleteCard(req, res);
 };
 
-app.get("/health", (req: Request, res: Response) => {
+app.get("/health", (_: Request, res: Response) => {
   res
     .json({
       message: "Application is healthy",
