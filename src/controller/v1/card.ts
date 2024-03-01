@@ -13,7 +13,29 @@ export default class CardController {
       const cards = await this.cardService.getCards();
       res.status(200).json({ cards });
     } catch (error) {
-      console.log("Card Controller Error: ", error);
+      console.log("Card Controller > getCards Error: ", error);
+      res.status(500).json({ message: "Internal Server error" });
+    }
+  }
+
+  async insertCard(req: IControllerInput, res: IControllerOutput) {
+    try {
+      const { titulo, conteudo, lista } = req.body;
+
+      if (
+        [titulo, conteudo, lista].some(
+          (param) => param === null || param === undefined || param === "",
+        )
+      )
+        return res
+          .status(400)
+          .json({ message: "Dados inválidos para criação do cartão" });
+
+      const card = await this.cardService.insertCard(titulo, conteudo, lista);
+
+      res.status(201).json(card);
+    } catch (error) {
+      console.log("Card Controller > insertCard Error: ", error);
       res.status(500).json({ message: "Internal Server error" });
     }
   }

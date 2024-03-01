@@ -14,4 +14,18 @@ export default class CardRepository {
     const result = await cardTable?.findAll();
     return result as unknown as Card[];
   }
+
+  async insertCard(
+    title: string,
+    content: string,
+    list: string,
+  ): Promise<Card> {
+    const cardTable = await this.dbClient.define(cardModelName, cardModel);
+    const card = await cardTable?.create({
+      title,
+      content,
+      list,
+    });
+    return card as unknown as Card;
+  }
 }

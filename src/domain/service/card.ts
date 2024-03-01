@@ -11,4 +11,12 @@ export default class CardService {
   async getCards(): Promise<Card[]> {
     return this.cardRepository.getCards();
   }
+
+  async insertCard(
+    title: string,
+    content: string,
+    list: string,
+  ): Promise<Card> {
+    return this.cardRepository.insertCard(title, content, list);
+  }
 }
