@@ -40,6 +40,6 @@ export function validateToken(req: Request, res: Response, next: NextFunction) {
 
 export function generateToken(params: object) {
   return jwt.sign(params, config.auth.secret, {
-    expiresIn: 60, //para 30min 1800
+    expiresIn: 1800, //para 30min 1800
   });
 }

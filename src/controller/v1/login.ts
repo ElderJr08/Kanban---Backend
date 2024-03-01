@@ -29,7 +29,7 @@ export default class LoginController {
 
       res.status(200).json({ token: `Bearer ${tokenAuth}` });
     } catch (error) {
-      console.log("Login Error: ", error);
+      console.log("Login Controller Error: ", error);
       res.status(500).json({ message: "Internal Server error" });
     }
   }
