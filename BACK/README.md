@@ -98,3 +98,25 @@ Para roda-lo, faça:
 ## Collection Postman
 
 as chamadas para cada um dos entrypoints se encontra no arquivo `Kanban-Backend.postman_collection` dentro da pasta `_postman-collection`
+
+## Notas de tarefa
+
+#### Breve descrição sobre o que fiz:
+ 
+```
+ - Todos os entryPoints solicitados
+ - Todas as validações pedidas
+ - Testes unitários
+ - Lint
+ - Aplicação "dockerizada"
+ - Aplicação desenvolvida e estruturada com base no DDD, Código limpo e SOLID
+```
+
+#### o que eu gostaria de ter incluído/implementado a mais
+ 
+```
+ - Segregar as rotas: criar um arquivo de rotas especifico para cada controller
+ - Testes de integração
+ - Exception especificas pra cada caso
+ - Aplicar IoC
+```
