@@ -15,7 +15,7 @@ export default class DatabaseClient implements IDatabaseClient {
     });
   }
 
-  public static getInstance() {
+  public static getInstance(config?: Config) {
     if (!this.instance) {
       this.instance = new DatabaseClient(config);
     }
@@ -23,10 +23,7 @@ export default class DatabaseClient implements IDatabaseClient {
   }
 
   async load(): Promise<void> {
-    const sequelize = this.client;
-    if (sequelize) {
-      await this.client?.sync();
-    }
+    await this.client?.sync();
   }
 
   async define<T extends ModelAttributes>(modelName: string, model: T) {
