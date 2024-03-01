@@ -30,6 +30,15 @@ acessar: http://localhost:3000/
 
 ## Subindo BACK localmente
 
+Adicione um arquivo .env dentro da pasta BACK:
+
+```
+PORT=5000
+JWT_SECRET=<ADICIONAR SECRET>
+DB_DIALECT=sqlite
+DB_STORAGE="./database.sqlite"
+```
+
 Rodar os seguintes comandos:
 
 Para roda-lo, faça:
@@ -55,3 +64,5 @@ Na raiz da FRONT,
 ```
 
 acessar: http://localhost:3000/
+
+#### NOTE: O projeto já esta com um login e senha cadastrado no banco para acessar a aplicação (mesmo login e senha ja definido no projeto do front)

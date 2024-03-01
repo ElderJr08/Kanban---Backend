@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "ef443cb1-66bb-4e09-bcbb-55d9d424388f",
+		"name": "Kanban-Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2722781"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/health",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"letscode\",\r\n    \"senha\": \"lets@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cards",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzA5MjY4MzQzLCJleHAiOjE3MDkyNzAxNDN9.3g7OsLORVziKU0VynQ8ZErWy1q5Y8-zUTYpqdJlA5_U",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/cards",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Card",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzA5MjYyOTczLCJleHAiOjE3MDkyNjQ3NzN9.YjsnmD4Mk8fgKtz8_6_bZv6u0soJDc-xsGoXMg20w1k",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Bug card 2\",\r\n    \"conteudo\": \"Bug pego em prod 2\",\r\n    \"lista\": \"lista de bugs em produção\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/cards",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Card",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzA5MjY2NDI0LCJleHAiOjE3MDkyNjgyMjR9.fVXyR9ASMNX9_7-xAbSzKhi_6W2O4tCPo6tkc5HIELA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Bug card atualizado 2\",\r\n    \"conteudo\": \"Bug pego em prod atualizado 2\",\r\n    \"lista\": \"lista de bugs em produção\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/cards/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"cards",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Card",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzA5MjY2NDI0LCJleHAiOjE3MDkyNjgyMjR9.fVXyR9ASMNX9_7-xAbSzKhi_6W2O4tCPo6tkc5HIELA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/cards/:id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"cards",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	]
+}
