@@ -1,7 +1,7 @@
-import DatabaseClient, { IDatabaseClient } from "../dbClient";
+import DatabaseClient from "../dbClient";
 import { Login } from "../../../domain/login";
 import { loginModel, loginModelName } from "../models/login";
-import { ILoginRepository } from "./interfaces";
+import { IDatabaseClient, ILoginRepository } from "./interfaces";
 
 export default class LoginRepository implements ILoginRepository {
   private dbClient: IDatabaseClient;

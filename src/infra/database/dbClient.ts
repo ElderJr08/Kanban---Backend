@@ -1,13 +1,6 @@
-import { Model, ModelAttributes, ModelStatic, Sequelize } from "sequelize";
+import { ModelAttributes, Sequelize } from "sequelize";
 import config, { Config } from "../../config";
-
-export interface IDatabaseClient {
-  define<T extends ModelAttributes>(
-    modelName: string,
-    model: T,
-  ): Promise<ModelStatic<Model> | null>;
-  load(): Promise<void>;
-}
+import { IDatabaseClient } from "./repositories/interfaces";
 
 export default class DatabaseClient implements IDatabaseClient {
   private static instance: IDatabaseClient | null;

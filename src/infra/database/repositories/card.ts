@@ -1,7 +1,7 @@
 import { Card } from "../../../domain/card";
-import DatabaseClient, { IDatabaseClient } from "../dbClient";
+import DatabaseClient from "../dbClient";
 import { cardModel, cardModelName } from "../models/card";
-import { ICardRepository } from "./interfaces";
+import { ICardRepository, IDatabaseClient } from "./interfaces";
 
 export default class CardRepository implements ICardRepository {
   private dbClient: IDatabaseClient;
