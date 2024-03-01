@@ -17,6 +17,17 @@ O quadro Kanban é geralmente dividido em colunas que representam os estágios d
 
 ## Subindo FRONT/BACK localmente
 
+Primeiro,
+
+adicione um arquivo .env dentro da pasta BACK:
+
+```
+PORT=5000
+JWT_SECRET=<ADICIONAR SECRET>
+DB_DIALECT=sqlite
+DB_STORAGE="./database.sqlite"
+```
+
 Rodar os seguintes comandos:
 
 Na raiz da pasta, rode:
