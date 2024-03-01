@@ -1,11 +1,12 @@
+import { ILoginService } from "../../domain/interfaces";
 import LoginService from "../../domain/service/login";
 import { generateToken } from "../../middlewares";
 import { IControllerInput, IControllerOutput } from "../interfaces";
 
 export default class LoginController {
-  private loginService: LoginService;
+  private loginService: ILoginService;
 
-  constructor(loginService?: LoginService) {
+  constructor(loginService?: ILoginService) {
     this.loginService = loginService ?? new LoginService();
   }
 

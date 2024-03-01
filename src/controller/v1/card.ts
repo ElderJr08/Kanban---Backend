@@ -1,10 +1,11 @@
+import { ICardService } from "../../domain/interfaces";
 import CardService from "../../domain/service/card";
 import { IControllerInput, IControllerOutput } from "../interfaces";
 
 export default class CardController {
-  private cardService: CardService;
+  private cardService: ICardService;
 
-  constructor(cardService?: CardService) {
+  constructor(cardService?: ICardService) {
     this.cardService = cardService ?? new CardService();
   }
 

@@ -1,10 +1,12 @@
 import CardRepository from "../../infra/database/repositories/card";
+import { ICardRepository } from "../../infra/database/repositories/interfaces";
 import { Card } from "../card";
+import { ICardService } from "../interfaces";
 
-export default class CardService {
-  private cardRepository: CardRepository;
+export default class CardService implements ICardService {
+  private cardRepository: ICardRepository;
 
-  constructor(cardRepository?: CardRepository) {
+  constructor(cardRepository?: ICardRepository) {
     this.cardRepository = cardRepository ?? new CardRepository();
   }
 
