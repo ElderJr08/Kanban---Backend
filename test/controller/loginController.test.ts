@@ -3,15 +3,12 @@ import LoginController from "../../src/controller/v1/login";
 import { ILoginService } from "../../src/domain/interfaces";
 import { Login } from "../../src/domain/login";
 import LoginService from "../../src/domain/service/login";
-import { generateToken } from "../../src/middlewares";
 import { mockReq, mockRes } from "../__mocks__/expressMock";
 
 jest.mock("../../src/domain/service/login");
 jest.mock("../../src/middlewares", () => ({
   generateToken: jest.fn(() => "fake-token"),
 }));
-
-generateToken;
 
 const LoginServiceMock = LoginService as unknown as jest.Mock<ILoginService>;
 
