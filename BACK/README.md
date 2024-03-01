@@ -110,6 +110,7 @@ as chamadas para cada um dos entrypoints se encontra no arquivo `Kanban-Backend.
  - Lint
  - Aplicação "dockerizada"
  - Aplicação desenvolvida e estruturada com base no DDD, Código limpo e SOLID
+ - Variaveis de ambiente
 ```
 
 #### o que eu gostaria de ter incluído/implementado a mais
@@ -119,4 +120,5 @@ as chamadas para cada um dos entrypoints se encontra no arquivo `Kanban-Backend.
  - Testes de integração
  - Exception especificas pra cada caso
  - Aplicar IoC
+ - Adicionar logica para encriptografar/descriptografar a senha no banco de dados (bcrypt)
 ```
