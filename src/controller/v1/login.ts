@@ -12,14 +12,14 @@ export default class LoginController {
 
   async getLogin(req: IControllerInput, res: IControllerOutput) {
     try {
-      const { login, senha } = req.body || {};
+      const { login, senha } = req.body;
 
-      if ([login, senha].includes(undefined))
+      if ([login, senha].includes(undefined) || [login, senha].includes(null))
         return res
           .status(400)
           .json({ message: "Os campos: login e senha não podem ser vazios." });
 
-      const result = (await this.loginService.getLogin(login, senha)) || {};
+      const result = await this.loginService.getLogin(login, senha);
 
       if (!result)
         return res
