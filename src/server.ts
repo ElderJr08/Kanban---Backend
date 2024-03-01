@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { validateToken } from "./middlewares";
+import { printDeleteOrUpdateResponse, validateToken } from "./middlewares";
 import LoginController from "./controller/v1/login";
 import CardController from "./controller/v1/card";
 
@@ -30,7 +30,7 @@ const makeUpdateCardsHandler = (req: Request, res: Response) => {
 
 const makeDeleteCardsHandler = (req: Request, res: Response) => {
   const controller = new CardController();
-  return controller.delete(req, res);
+  return controller.deleteCard(req, res);
 };
 
 app.get("/health", (req: Request, res: Response) => {
@@ -44,6 +44,7 @@ app.get("/health", (req: Request, res: Response) => {
 app.post("/login", makeGetLoginHandler);
 
 app.use("*", validateToken);
+app.use("*", printDeleteOrUpdateResponse);
 
 app.get("/cards", makeGetCardsHandler);
 app.post("/cards", makeInsertCardsHandler);

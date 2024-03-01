@@ -73,12 +73,12 @@ export default class CardController {
         lista,
       });
     } catch (error) {
-      console.log("Card Controller > insertCard Error: ", error);
+      console.log("Card Controller > updateCard Error: ", error);
       res.status(500).json({ message: "Internal Server error" });
     }
   }
 
-  async delete(req: IControllerInput, res: IControllerOutput) {
+  async deleteCard(req: IControllerInput, res: IControllerOutput) {
     try {
       const { id } = req.params;
 
@@ -98,7 +98,7 @@ export default class CardController {
 
       res.status(200).json({ cards });
     } catch (error) {
-      console.log("Card Controller > insertCard Error: ", error);
+      console.log("Card Controller > deleteCard Error: ", error);
       res.status(500).json({ message: "Internal Server error" });
     }
   }
